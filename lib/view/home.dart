@@ -1,7 +1,8 @@
+import 'package:eshop/view/product_d_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:untitled/DB/productdb.dart';
-import 'package:untitled/view/auth.dart';
+import 'package:eshop/DB/productdb.dart';
+import 'package:eshop/view/auth.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class Home extends StatefulWidget {
@@ -222,7 +223,8 @@ class _HomeState extends State<Home> {
                                       boxShadow: [
                                         BoxShadow(
                                             color: Colors.black38,
-                                            offset: Offset(2, 4),blurRadius: 3)
+                                            offset: Offset(2, 4),
+                                            blurRadius: 3)
                                       ],
                                       borderRadius: BorderRadius.circular(20),
                                     ),
@@ -253,7 +255,8 @@ class _HomeState extends State<Home> {
                                         // Text(
                                         //     "${data.elementAt(index)['categories_id']}"),
                                         Padding(
-                                          padding: EdgeInsets.all(5),
+                                          padding: EdgeInsets.only(
+                                              right: 2, left: 7),
                                           child: Row(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
@@ -264,13 +267,36 @@ class _HomeState extends State<Home> {
                                                     fontSize: 16,
                                                     color: Colors.black38),
                                               ),
-                                              // SizedBox(
-                                              //   width: 30,
-                                              // ),
                                               Spacer(),
-                                              Icon(
-                                                Icons.favorite_border,
-                                                size: 30,
+                                              IconButton(
+                                                onPressed: () {
+                                                  // Navigator.of(context).push(
+                                                  //   MaterialPageRoute(
+                                                  //     builder: (context) =>
+                                                  //         const PD_page(),
+                                                  //   ),
+                                                  // );
+                                                },
+                                                icon: Icon(
+                                                  Icons.shopping_cart,
+                                                  size: 25,
+                                                  color: Colors.blueGrey,
+                                                ),
+                                              ),
+                                              IconButton(
+                                                onPressed: () {
+                                                  Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const PD_page(),
+                                                    ),
+                                                  );
+                                                },
+                                                icon: Icon(
+                                                  Icons.favorite,
+                                                  size: 25,
+                                                  color: Colors.redAccent,
+                                                ),
                                               ),
                                             ],
                                           ),

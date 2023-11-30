@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
-import 'package:untitled/view/phone.dart';
+import 'package:eshop/view/phone.dart';
 
 class otp extends StatefulWidget {
   const otp({super.key});

@@ -1,10 +1,13 @@
+import 'package:eshop/view/register_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:untitled/DB/signupDB.dart';
-import 'package:untitled/view/bottom_bar.dart';
-import 'package:untitled/view/home.dart';
-import 'package:untitled/view/phone.dart';
-import 'package:untitled/view/splesh.dart';
+import 'package:eshop/DB/signupDB.dart';
+import 'package:eshop/view/bottom_bar.dart';
+import 'package:eshop/view/home.dart';
+import 'package:eshop/view/phone.dart';
+import 'package:eshop/view/splesh.dart';
 
 class Auth extends StatefulWidget {
   const Auth({super.key});
@@ -19,12 +22,18 @@ class _AuthState extends State<Auth> {
   //   super.initState();
   //   localStorage = await SharedPreferences.getInstance();
   // }
+  @override
+  oninit() {
+    checklogin();
+  }
 
-  String email = "Test@gmail.com";
-  String pass = "user123";
+  // String email = "Test@gmail.com";
+  // String pass = "user123";
 
   TextEditingController emailCon = new TextEditingController();
   TextEditingController password = new TextEditingController();
+  String LOGINKEY = "isLogin";
+  bool? isLogin = false;
 
   Future checklogin() async {
     Map k = {"email": emailCon.text, "password": password.text};
@@ -33,7 +42,9 @@ class _AuthState extends State<Auth> {
 
     if (data['result'] == 'Login Succfully') {
       SharedPreferences Preferances = await SharedPreferences.getInstance();
+      // SharedPreferences Pref = await SharedPreferences.getInstance();
       Preferances.setString('email', emailCon.text);
+      Preferances.setBool(LOGINKEY, true);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -46,11 +57,13 @@ class _AuthState extends State<Auth> {
             fontStyle: FontStyle.italic, fontSize: 25, color: Colors.green),
       );
     } else {
-      const Text(
-        "filed",
-        style: TextStyle(
-            fontStyle: FontStyle.italic, fontSize: 25, color: Colors.red),
-      );
+      SharedPreferences Preferances = await SharedPreferences.getInstance();
+      isLogin = Preferances.getBool(LOGINKEY);
+      if (isLogin == true) {
+        Get.to(BottomBar());
+      } else {
+        Get.to(Register());
+      }
     }
   }
 
@@ -133,6 +146,7 @@ class _AuthState extends State<Auth> {
                               // enabled: false,
                               focusColor: Colors.black,
                               hintText: "Enter Your Email",
+                              // errorText: checklogin().toString(),
                               hintStyle: TextStyle(
                                 fontSize: 16,
                               ),

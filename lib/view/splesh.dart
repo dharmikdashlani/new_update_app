@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:gif/gif.dart';
 import 'package:lottie/lottie.dart';
-import 'package:untitled/view/phone.dart';
+import 'package:eshop/view/phone.dart';
 
 import 'auth.dart';
 

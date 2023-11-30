@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rolling_bottom_bar/rolling_bottom_bar.dart';
 import 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';
-import 'package:untitled/view/brands.dart';
-import 'package:untitled/view/home.dart';
-import 'package:untitled/view/profile.dart';
+import 'package:eshop/view/brands.dart';
+import 'package:eshop/view/home.dart';
+import 'package:eshop/view/profile.dart';
 
 import 'cart.dart';
 import 'favorite.dart';

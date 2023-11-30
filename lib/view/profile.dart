@@ -69,34 +69,9 @@ class _ProfileState extends State<Profile> {
                           alignment: const Alignment(1.3, 1),
                           children: [
                             CircleAvatar(
-                              radius: 60,
-                              backgroundColor: const Color(0xfff59434),
+                              radius: 50,
                               backgroundImage:
-                                  (file != null) ? FileImage(file!) : null,
-                              child: ((file == null)
-                                  ? Text(
-                                      "Add",
-                                      style: TextStyle(color: Colors.black),
-                                    )
-                                  : null),
-                            ),
-                            CircleAvatar(
-                              radius: 22,
-                              backgroundColor: Colors.black,
-                              child: FloatingActionButton(
-                                mini: true,
-                                elevation: 10,
-                                backgroundColor: const Color(0xfff59434),
-                                onPressed: () {
-                                  setState(() {
-                                    getImageFromCamera();
-                                  });
-                                },
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.black,
-                                ),
-                              ),
+                                  AssetImage("assets/icons/User.png"),
                             ),
                           ],
                         ),
